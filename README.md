@@ -1,41 +1,29 @@
-## Demo
-
-http://crystalui.org/components/masonry-layout
-
 ## Installation
 
 Install the npm package.
 
-    npm i ngx-masonry-layout
+    npm i ngx-crystal-swiper
         
 Import module:
 
-    import { MasonryLayoutComponent } from 'ngx-masonry-layout/components';
+    import { SwiperComponent } from 'ngx-crystal-swiper/components';
  
 	@NgModule({
-	    declarations: [ MasonryLayoutComponent ]
+	    declarations: [ SwiperComponent ]
 	})
 
 ## Usage
     
 	myImages = [
 		{
-			path: 'path_to_image',
-			width: natural_width,
-			height: natural_height
+			path: 'path_to_image'
 		}
 	];
 
-	<masonry-layout 
-		[max-height]="250"
-		[gutter]="4" 
-		[images]="myImages"
-		(events)="handleMasonryLayoutEvents($event)"></masonry-layout>
+	<swiper [images]="myImages" height="100%"></swiper> 
 
 ## Properties
 
 | name             | type                                | description                                                               |
 |------------------|-------------------------------------|---------------------------------------------------------------------------|
-| max-height       | number                              | Maximum row height.                                                       |
-| gutter           | number                              | Adds space between item elements (it is recommended to use even numbers). |
-| class-name       | string or array                     | Adds classes for each item.                                               |
+| height           | string                              | Container height (in pixels or percentages).                              |

@@ -6,8 +6,12 @@ import { Directive, ElementRef, HostListener, Input, Output, EventEmitter } from
 
 export class PinchDirective{
 
+    i = 0;
     elem: any;
     eventType: any;
+
+    scale: any = 1;
+    initialScale: any = 1;
 
     startX: any;
     startY: any;
@@ -43,8 +47,9 @@ export class PinchDirective{
     touchmoveHandler(event) {
         let touches = event.touches;
 
-        if (touches.length === 1 && !this.eventType || this.eventType == 'swipe'){
+        if (touches.length === 1 && this.scale === 1 && !this.eventType || this.eventType == 'swipe' || this.eventType == 'horizontal-swipe'){
             //event.preventDefault();
+            this.i++;
 
             if (!this.isNextImageLoaded) {
                 return;
@@ -55,7 +60,28 @@ export class PinchDirective{
                 this.startY = event.touches[0].pageY;
             }
 
-            this.eventType = 'swipe';
+            if (this.i < 4){
+                this.eventType = 'swipe';
+                //event.preventDefault();
+                return;
+            }
+
+            if (this.eventType != 'scroll' && this.eventType != 'horizontal-swipe'){
+                let movementX = Math.abs(event.touches[0].pageX - this.startX);
+                let movementY = Math.abs(event.touches[0].pageY - this.startY);
+
+                if ((movementY * 3) > movementX) {
+                    this.eventType = 'scroll';
+                } 
+            } 
+
+            if (this.eventType === 'scroll'){
+                return;
+            }
+
+            event.preventDefault();
+            
+            this.eventType = 'horizontal-swipe';
 
             this.moveX = this.initialMoveX + (event.touches[0].pageX - this.startX);
             this.moveY = 0;
@@ -66,25 +92,30 @@ export class PinchDirective{
 
     @HostListener('touchend', ['$event'])
     touchendHandler(event) {
+        this.i = 0;
         let touches = event.touches;
         let img = this.elem.getElementsByTagName("img")[0];
 
         if (!this.isNextImageLoaded) {
             return;
         }
-
+        
+        if (this.scale < 1){
+            this.scale = 1;
+        }
         if (this.moveY > 0){
             this.moveY = 0;
         } 
 
-        if (this.moveX > 100){
+        if (this.moveX > 50){
             this.slide('prev');
-        } else if (this.moveX < -100){
+        } else if (this.moveX < -50){
             this.slide('next');
         } else {
             this.moveX = 0;
         }
 
+        this.initialScale = this.scale;
         this.initialMoveX = this.moveX;
         this.initialMoveY = this.moveY;
 
@@ -100,13 +131,13 @@ export class PinchDirective{
         this.onSlide(event);
 
         if (event === 'prev'){
-            this.moveX = window.innerWidth + 8; // change
+            this.moveX = window.innerWidth + 8;
             if (this.isFirst){
                 this.moveX = 0;
             }
         }
         if (event === 'next'){
-            this.moveX = -window.innerWidth - 8; // change
+            this.moveX = -window.innerWidth - 8;
             if (this.isLast){
                 this.moveX = 0;
             }
@@ -126,7 +157,7 @@ export class PinchDirective{
     }
 
     transformElem(duration: any = 50){
-        let matrixVal = 'matrix('+ 1 +','+ 0 +','+ 0 +','+ 1 +','+ Number(this.moveX) +','+ Number(this.moveY) +')';
+        let matrixVal = 'matrix('+ Number(this.scale) +','+ 0 +','+ 0 +','+ Number(this.scale) +','+ Number(this.moveX) +','+ Number(this.moveY) +')';
         
         this.elem.style.transition = 'all '+ duration +'ms';
         this.elem.style.transform = matrixVal;

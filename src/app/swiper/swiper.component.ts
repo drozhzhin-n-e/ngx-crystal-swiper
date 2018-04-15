@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ElementRef, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Component, Input, OnInit, ElementRef, ViewChild, ChangeDetectorRef, HostBinding } from '@angular/core';
 
 @Component({
 	selector: 'swiper', 
@@ -8,6 +8,7 @@ import { Component, Input, OnInit, ElementRef, ViewChild, ChangeDetectorRef } fr
 export class SwiperComponent {
     @Input('images') images: any = [];
     @Input('config') config: any = {};
+    @Input('height') containerHeight: string;
 
 	_index: any;
     prevIndex: any;
@@ -31,6 +32,8 @@ export class SwiperComponent {
     landscapeMode: any;
 
     @ViewChild('wrapper') wrapperEl: ElementRef;
+
+    @HostBinding('style.height') hostHeight:string;
 
     get index(){
         return this.currImage.index;
@@ -86,6 +89,7 @@ export class SwiperComponent {
     ngOnInit(){
         this.prevIndex = this.currImage.index-1;
         this.nextIndex = this.currImage.index+1;
+        this.hostHeight = this.containerHeight;
     }
 
     slide(event: any){
