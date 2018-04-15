@@ -8,7 +8,7 @@ exports = module.exports = __webpack_require__(27)();
 
 
 // module
-exports.push([module.i, "swiper {\r\n\tbackground: #000;\r\n}", ""]);
+exports.push([module.i, "swiper {\n\tbackground: #000;\n}", ""]);
 
 // exports
 
@@ -26,7 +26,7 @@ exports = module.exports = __webpack_require__(27)();
 
 
 // module
-exports.push([module.i, ":host {\r\n  top: 0;\r\n  left: 0;\r\n  width: inherit;\r\n  height: inherit;\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n      -ms-user-select: none;\r\n          user-select: none;\r\n  transition: opacity 200ms cubic-bezier(0.645, 0.045, 0.355, 1);\r\n  z-index: 10000;\r\n  display: block;\r\n  overflow: hidden;\r\n  position: relative; }\r\n\r\n:host .swiper-counter {\r\n  position: absolute;\r\n  top: 8px;\r\n  right: 8px;\r\n  z-index: 100;\r\n  border-radius: 13px;\r\n  background-color: rgba(23, 37, 68, 0.3);\r\n  font-size: 11px;\r\n  letter-spacing: 0.4px;\r\n  color: #ffffff;\r\n  padding: 5px 7px; }\r\n:host .swiper-wrapper.swiper-landscape .swiper-image-wrap img {\r\n  height: 100%; }\r\n:host .swiper-wrapper {\r\n  transition: none;\r\n  width: inherit;\r\n  height: inherit;\r\n  display: block; }\r\n  :host .swiper-wrapper .swiper-image-wrap.swiper-prev-image {\r\n    -webkit-transform: translate3d(calc(-100% - 8px), 0, 0);\r\n            transform: translate3d(calc(-100% - 8px), 0, 0); }\r\n  :host .swiper-wrapper .swiper-image-wrap.swiper-next-image {\r\n    -webkit-transform: translate3d(calc(100% + 8px), 0, 0);\r\n            transform: translate3d(calc(100% + 8px), 0, 0); }\r\n  :host .swiper-wrapper .swiper-image-wrap {\r\n    width: 100%;\r\n    height: 100%;\r\n    text-align: center;\r\n    position: absolute;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-align: center;\r\n        -ms-flex-align: center;\r\n            align-items: center;\r\n    -webkit-box-pack: center;\r\n        -ms-flex-pack: center;\r\n            justify-content: center; }\r\n    :host .swiper-wrapper .swiper-image-wrap img {\r\n      max-width: 100%;\r\n      max-height: 100%;\r\n      width: auto;\r\n      height: auto;\r\n      position: relative; }\r\n    :host .swiper-wrapper .swiper-image-wrap img.swiper-hide {\r\n      display: none; }\r\n", ""]);
+exports.push([module.i, ":host {\n  top: 0;\n  left: 0;\n  width: inherit;\n  height: inherit;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n  transition: opacity 200ms cubic-bezier(0.645, 0.045, 0.355, 1);\n  z-index: 10000;\n  display: block;\n  overflow: hidden;\n  position: relative; }\n\n:host .swiper-counter {\n  position: absolute;\n  top: 8px;\n  right: 8px;\n  z-index: 100;\n  border-radius: 13px;\n  background-color: rgba(23, 37, 68, 0.3);\n  font-size: 11px;\n  letter-spacing: 0.4px;\n  color: #ffffff;\n  padding: 5px 7px; }\n:host .swiper-wrapper.swiper-landscape .swiper-image-wrap img {\n  height: 100%; }\n:host .swiper-wrapper {\n  transition: none;\n  width: inherit;\n  height: inherit;\n  display: block; }\n  :host .swiper-wrapper .swiper-image-wrap.swiper-prev-image {\n    -webkit-transform: translate3d(calc(-100% - 8px), 0, 0);\n            transform: translate3d(calc(-100% - 8px), 0, 0); }\n  :host .swiper-wrapper .swiper-image-wrap.swiper-next-image {\n    -webkit-transform: translate3d(calc(100% + 8px), 0, 0);\n            transform: translate3d(calc(100% + 8px), 0, 0); }\n  :host .swiper-wrapper .swiper-image-wrap {\n    width: 100%;\n    height: 100%;\n    text-align: center;\n    position: absolute;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center; }\n    :host .swiper-wrapper .swiper-image-wrap img {\n      max-width: 100%;\n      max-height: 100%;\n      width: auto;\n      height: auto;\n      position: relative; }\n    :host .swiper-wrapper .swiper-image-wrap img.swiper-hide {\n      display: none; }\n", ""]);
 
 // exports
 
@@ -46,7 +46,7 @@ module.exports = "<swiper height=\"100%\" [images]=\"myImages\"></swiper> "
 /***/ 140:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"swiper-counter\">{{index+1}} / {{images.length}}</div>\r\n<div \r\n\tclass=\"swiper-wrapper\" \r\n\tpinch \r\n\t[isLast]=\"isLast\" \r\n\t[isFirst]=\"isFirst\" \r\n\t(events)=\"handlePinchEvents($event)\"\r\n\t#wrapper>\r\n\t<div class=\"swiper-image-wrap swiper-prev-image\">\r\n\t\t<img \r\n\t\t\t*ngIf=\"prevImagePath\"\r\n\t\t\t[src]=\"prevImagePath\" />\r\n\t</div>\r\n\r\n\t<div class=\"swiper-image-wrap swiper-curr-image\">\r\n\t\t<img\r\n\t\t\t*ngIf=\"currImagePath\"\r\n\t\t\t[src]=\"currImagePath\" />\r\n\t</div>\r\n\t\r\n\t<div class=\"swiper-image-wrap swiper-next-image\">\r\n\t\t<img \r\n\t\t\t*ngIf=\"nextImagePath\"\r\n\t\t\t[src]=\"nextImagePath\" />\r\n\t</div>\r\n</div>"
+module.exports = "<div class=\"swiper-counter\">{{index+1}} / {{images.length}}</div>\n<div \n\tclass=\"swiper-wrapper\" \n\tpinch \n\t[isLast]=\"isLast\" \n\t[isFirst]=\"isFirst\" \n\t(events)=\"handlePinchEvents($event)\"\n\t#wrapper>\n\t<div class=\"swiper-image-wrap swiper-prev-image\">\n\t\t<img \n\t\t\t*ngIf=\"prevImagePath\"\n\t\t\t[src]=\"prevImagePath\" />\n\t</div>\n\n\t<div class=\"swiper-image-wrap swiper-curr-image\">\n\t\t<img\n\t\t\t*ngIf=\"currImagePath\"\n\t\t\t[src]=\"currImagePath\" />\n\t</div>\n\t\n\t<div class=\"swiper-image-wrap swiper-next-image\">\n\t\t<img \n\t\t\t*ngIf=\"nextImagePath\"\n\t\t\t[src]=\"nextImagePath\" />\n\t</div>\n</div>"
 
 /***/ }),
 
@@ -110,40 +110,40 @@ var AppComponent = (function () {
     function AppComponent() {
         this.myImages = [
             {
-                path: '/assets/img/yi-sung-tsai-04--vertical.jpg'
+                path: 'https://drozhzhin-n-e.github.io/ngx-crystal-swiper/assets/img/yi-sung-tsai-04--vertical.jpg'
             },
             {
-                path: '/assets/img/yi-sung-tsai-01.jpg',
+                path: 'https://drozhzhin-n-e.github.io/ngx-crystal-swiper/assets/img/yi-sung-tsai-01.jpg',
             },
             {
-                path: '/assets/img/yi-sung-tsai-02.jpg'
+                path: 'https://drozhzhin-n-e.github.io/ngx-crystal-swiper/assets/img/yi-sung-tsai-02.jpg'
             },
             {
-                path: '/assets/img/yi-sung-tsai-03.jpg'
+                path: 'https://drozhzhin-n-e.github.io/ngx-crystal-swiper/assets/img/yi-sung-tsai-03.jpg'
             },
             {
-                path: '/assets/img/yi-sung-tsai-04.jpg'
+                path: 'https://drozhzhin-n-e.github.io/ngx-crystal-swiper/assets/img/yi-sung-tsai-04.jpg'
             },
             {
-                path: '/assets/img/yi-sung-tsai-05.jpg'
+                path: 'https://drozhzhin-n-e.github.io/ngx-crystal-swiper/assets/img/yi-sung-tsai-05.jpg'
             },
             {
-                path: '/assets/img/yi-sung-tsai-06.jpg'
+                path: 'https://drozhzhin-n-e.github.io/ngx-crystal-swiper/assets/img/yi-sung-tsai-06.jpg'
             },
             {
-                path: '/assets/img/yi-sung-tsai-07.jpg'
+                path: 'https://drozhzhin-n-e.github.io/ngx-crystal-swiper/assets/img/yi-sung-tsai-07.jpg'
             },
             {
-                path: '/assets/img/yi-sung-tsai-08.jpg'
+                path: 'https://drozhzhin-n-e.github.io/ngx-crystal-swiper/assets/img/yi-sung-tsai-08.jpg'
             },
             {
-                path: '/assets/img/yi-sung-tsai-09.jpg'
+                path: 'https://drozhzhin-n-e.github.io/ngx-crystal-swiper/assets/img/yi-sung-tsai-09.jpg'
             },
             {
-                path: '/assets/img/yi-sung-tsai-10.jpg'
+                path: 'https://drozhzhin-n-e.github.io/ngx-crystal-swiper/assets/img/yi-sung-tsai-10.jpg'
             },
             {
-                path: '/assets/img/yi-sung-tsai-11.jpg'
+                path: 'https://drozhzhin-n-e.github.io/ngx-crystal-swiper/assets/img/yi-sung-tsai-11.jpg'
             }
         ];
     }
