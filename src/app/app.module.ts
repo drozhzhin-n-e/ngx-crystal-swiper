@@ -16,9 +16,7 @@ import { SwiperModule } from './swiper/swiper.module';
     HttpModule,
     SwiperModule
   ],
-  exports:[
-    SwiperModule
-  ],
+  exports:[],
   providers: [],
   bootstrap: [AppComponent] 
 })

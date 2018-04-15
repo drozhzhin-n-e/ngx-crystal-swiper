@@ -6,10 +6,10 @@ Install the npm package.
         
 Import module:
 
-    import { SwiperComponent } from 'ngx-crystal-swiper/components';
+    import { SwiperModule } from 'ngx-crystal-swiper/components';
  
 	@NgModule({
-	    declarations: [ SwiperComponent ]
+	    imports: [ SwiperModule ]
 	})
 
 ## Usage
